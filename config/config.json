@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "cowboy25",
+    "database": "firefighter_db",
     "host": "localhost",
     "dialect": "mysql"
   },
