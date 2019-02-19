@@ -1,18 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-  var Personnel = sequelize.define("Personnel", {
-    uid: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true
-      }
-    },
-    lastName: {
+  var Location = sequelize.define("Location", {
+    stationNameOrNumber: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -52,58 +40,50 @@ module.exports = function(sequelize, DataTypes) {
         len: [5, 9]
       }
     },
-    homePhone: {
+    region: {
+      type: DataTypes.STRING
+    },
+    country: {
+      type: DataTypes.STRING,
+      defaultValue: "United States of America"
+    },
+    phoneNumber: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isInt: true,
+        len: [10, 10]
+      }
+    },
+    faxNumber: {
       type: DataTypes.STRING,
       validate: {
         isInt: true,
         len: [10, 10]
       }
     },
-    cellPhone: {
-      type: DataTypes.STRING,
-      validate: {
-        isInt: true,
-        len: [10, 10]
-      }
-    },
-    userEmail: {
+    email: {
       type: DataTypes.STRING,
       validate: {
         isEmail: true
       }
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true
-      },
-      defaultValue: function() {
-        return this.firstName + "." + this.lastName + this.uid;
-      }
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [8]
-      }
+    nameOfChief: {
+      type: DataTypes.STRING
     }
   });
 
-  Personnel.associate = function(models) {
-    models.Personnel.hasMany(models.Certification, {
-      onDelete: "CASCADE"
-    });
+  Location.associate = function(models) {
+    models.Location.hasMany(models.Personnel, {});
   };
 
-  Personnel.associate = function(models) {
-    models.Personnel.belongsTo(models.Location, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
+  Location.associate = function(models) {
+    models.Location.hasMany(models.Truck, {});
   };
 
-  return Personnel;
+  Location.associate = function(models) {
+    models.Location.hasMany(models.Equipment, {});
+  };
+
+  return Location;
 };
