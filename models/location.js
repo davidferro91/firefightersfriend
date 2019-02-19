@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         isAlpha: true,
-        len: [2,2]
+        len: [2, 2]
       }
     },
     zipcode: {
