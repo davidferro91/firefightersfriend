@@ -88,6 +88,21 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [8]
       }
+    },
+    permissionLevel: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+      validate: {
+        isInt: true
+      }
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
     }
   });
 
