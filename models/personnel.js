@@ -107,9 +107,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Personnel.associate = function(models) {
-    models.Personnel.hasMany(models.Certification, {
-      onDelete: "CASCADE"
-    });
+    models.Personnel.hasMany(models.Certification, {});
   };
 
   Personnel.associate = function(models) {
@@ -118,6 +116,10 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+  };
+
+  Personnel.associate = function(models) {
+    models.Personnel.hasMany(models.MasterLog, {});
   };
 
   return Personnel;
