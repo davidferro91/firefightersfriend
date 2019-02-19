@@ -7,23 +7,31 @@ module.exports = function(sequelize, DataTypes) {
     },
     certType: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     dateIssued: {
-      type: DataTypes.STRING,
-      allowNull: true,
+      type: DataTypes.DATE,
+      allowNull: false,
       validate: {
         isDate: true
       }
     },
     expDate: {
-      type: DataTypes.STRING,
-      allowNull: true,
+      type: DataTypes.DATE,
+      allowNull: false,
       validate: {
-        isDate: true,
-        len: [6, 6]
+        isDate: true
       }
     }
   });
+
+  Certification.associate = function(models) {
+    models.Certification.belongsTo(models.Personnel, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Certification;
 };
