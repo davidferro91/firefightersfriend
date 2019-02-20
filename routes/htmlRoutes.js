@@ -40,15 +40,10 @@ module.exports = function(app) {
     res.render("home", {});
   });
   // Load example page and pass in an example by id
-<<<<<<< HEAD
-  app.get("/example/:id", function (req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-=======
   app.get("/example/:id", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(
       dbExample
     ) {
->>>>>>> d6d86e5e182f3c7d66ba227e7d484fd77d067052
       res.render("example", {
         example: dbExample
       });
