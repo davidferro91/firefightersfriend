@@ -54,17 +54,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     homePhone: {
       type: DataTypes.STRING,
-      validate: {
-        isInt: true,
-        len: [10, 10]
-      }
+      allowNull: true
     },
     cellPhone: {
       type: DataTypes.STRING,
-      validate: {
-        isInt: true,
-        len: [10, 10]
-      }
+      allowNull: true
     },
     userEmail: {
       type: DataTypes.STRING,
@@ -78,9 +72,7 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         notEmpty: true
       },
-      defaultValue: function() {
-        return this.firstName + "." + this.lastName + this.uid;
-      }
+      defaultValue: this.firstName + "." + this.lastName + this.uid
     },
     password: {
       type: DataTypes.STRING,
@@ -107,9 +99,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Personnel.associate = function(models) {
-    models.Personnel.hasMany(models.Certification, {
-      onDelete: "CASCADE"
-    });
+    models.Personnel.hasMany(models.Certification, {});
   };
 
   Personnel.associate = function(models) {
@@ -118,6 +108,10 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+  };
+
+  Personnel.associate = function(models) {
+    models.Personnel.hasMany(models.MasterLog, {});
   };
 
   return Personnel;
