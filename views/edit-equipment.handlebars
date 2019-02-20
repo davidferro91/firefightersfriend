@@ -1,0 +1,104 @@
+ <!-- <div class="container"> -->
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        </div>
+        <div class="mx-auto order-0">
+            <a class="navbar-brand mx-auto" href="/home"><i class="fas fa-fire-alt"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/crew">Crew</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/equipment">Equipment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">My Profile</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+
+
+
+        <!-- Jumbotron -->
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Employee Certificate Management<i class="fas fa-fire-alt"></i></h1>
+            </div>
+        </div>
+        <!-- <div class="jumbotron" style="background-color: black; color: white">
+            <h1 class="text-center">Certificate Data Management</h1>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-12"> -->
+
+        <!-- Current Employees-->
+        <div class="card mb-4">
+            <div class="card-header">Current Certificates</div>
+            <div class="card-body">
+                <table class="table table-sm table-hover" id='employee-table'>
+                    <thead>
+                        <tr>
+                            <th scope="col">Certificate</th>
+                            <th scope="col">Qualifications</th>
+                            <th scope="col">Issued Date</th>
+                            <th scope="col">Expiration Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Add Employee  -->
+                <div class="card mb-4">
+                    <div class="card-header">Add Certificate</div>
+                    <div class="card-body">
+
+                        <!-- Entry Form -->
+                        <form>
+                            <div class="form-group">
+                                <label for="employee-name-input">Certificate</label>
+                                <input class="form-entry" id="employee-name-input" placeholder="Jane Doe" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="role-input">Qualifications</label>
+                                <input class="form-entry" id="role-input" placeholder="CEO" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="start-input">Issue Date</label>
+                                <input class="form-entry" id="start-input" placeholder="01/08/1989" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="rate-input">Expiration Date</label>
+                                <input class="form-entry" id="rate-input" placeholder="200000" type="text">
+                            </div>
+                            <button class="btn btn-primary float-right" id="add-employee-btn">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
