@@ -57,7 +57,17 @@ module.exports = function(app) {
         req.body.lastName.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, "") +
         (Math.floor(Math.random() * 1000) + 1)
     }).then(function(dbPersonnel) {
-      res.json(dbPersonnel);
+      db.MasterLog.create({
+        entryType: "CREATE",
+        record: JSON.stringify(dbPersonnel),
+        PersonnelUid: dbPersonnel.uid
+      }).then(function(dbMasterLog) {
+        var returnOb = {
+          personnel: dbPersonnel,
+          masterLog: dbMasterLog
+        };
+        res.json(returnOb);
+      });
     });
   });
 
@@ -68,7 +78,17 @@ module.exports = function(app) {
       dateIssued: req.body.dateIssued,
       expDate: req.body.expDate
     }).then(function(dbCertification) {
-      res.json(dbCertification);
+      db.MasterLog.create({
+        entryType: "CREATE",
+        record: JSON.stringify(dbCertification),
+        PersonnelUid: req.body.uid
+      }).then(function(dbMasterLog) {
+        var returnOb = {
+          certification: dbCertification,
+          masterLog: dbMasterLog
+        };
+        res.json(returnOb);
+      });
     });
   });
 
@@ -80,7 +100,17 @@ module.exports = function(app) {
       serviceDate: req.body.serviceDate,
       expireDate: req.body.expireDate
     }).then(function(dbEquipment) {
-      res.json(dbEquipment);
+      db.MasterLog.create({
+        entryType: "CREATE",
+        record: JSON.stringify(dbEquipment),
+        PersonnelUid: req.body.uid
+      }).then(function(dbMasterLog) {
+        var returnOb = {
+          equipment: dbEquipment,
+          masterLog: dbMasterLog
+        };
+        res.json(returnOb);
+      });
     });
   });
 
@@ -100,7 +130,17 @@ module.exports = function(app) {
       email: req.body.email,
       nameOfChief: req.body.nameOfChief
     }).then(function(dbLocation) {
-      res.json(dbLocation);
+      db.MasterLog.create({
+        entryType: "CREATE",
+        record: JSON.stringify(dbLocation),
+        PersonnelUid: req.body.uid
+      }).then(function(dbMasterLog) {
+        var returnOb = {
+          location: dbLocation,
+          masterLog: dbMasterLog
+        };
+        res.json(returnOb);
+      });
     });
   });
 
@@ -115,8 +155,18 @@ module.exports = function(app) {
       mileage: req.body.mileage,
       expirationMileage: req.body.expirationMileage,
       capacity: req.body.capacity
-    }).then(function(dbLocation) {
-      res.json(dbLocation);
+    }).then(function(dbTruck) {
+      db.MasterLog.create({
+        entryType: "CREATE",
+        record: JSON.stringify(dbTruck),
+        PersonnelUid: req.body.uid
+      }).then(function(dbMasterLog) {
+        var returnOb = {
+          truck: dbTruck,
+          masterLog: dbMasterLog
+        };
+        res.json(returnOb);
+      });
     });
   });
 
@@ -127,7 +177,17 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbTruck) {
-      res.json(dbTruck);
+      db.MasterLog.create({
+        entryType: "DELETE",
+        record: JSON.stringify(dbTruck),
+        PersonnelUid: req.body.uid
+      }).then(function(dbMasterLog) {
+        var returnOb = {
+          truck: dbTruck,
+          masterLog: dbMasterLog
+        };
+        res.json(returnOb);
+      });
     });
   });
 
@@ -138,7 +198,17 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbLocation) {
-      res.json(dbLocation);
+      db.MasterLog.create({
+        entryType: "DELETE",
+        record: JSON.stringify(dbLocation),
+        PersonnelUid: req.body.uid
+      }).then(function(dbMasterLog) {
+        var returnOb = {
+          location: dbLocation,
+          masterLog: dbMasterLog
+        };
+        res.json(returnOb);
+      });
     });
   });
 
@@ -149,7 +219,17 @@ module.exports = function(app) {
         equipId: req.params.id
       }
     }).then(function(dbEquipment) {
-      res.json(dbEquipment);
+      db.MasterLog.create({
+        entryType: "DELETE",
+        record: JSON.stringify(dbEquipment),
+        PersonnelUid: req.body.uid
+      }).then(function(dbMasterLog) {
+        var returnOb = {
+          equipment: dbEquipment,
+          masterLog: dbMasterLog
+        };
+        res.json(returnOb);
+      });
     });
   });
 
@@ -160,7 +240,17 @@ module.exports = function(app) {
         uid: req.params.id
       }
     }).then(function(dbPersonnel) {
-      res.json(dbPersonnel);
+      db.MasterLog.create({
+        entryType: "DELETE",
+        record: JSON.stringify(dbPersonnel),
+        PersonnelUid: req.body.uid
+      }).then(function(dbMasterLog) {
+        var returnOb = {
+          personnel: dbPersonnel,
+          masterLog: dbMasterLog
+        };
+        res.json(returnOb);
+      });
     });
   });
 
@@ -171,7 +261,17 @@ module.exports = function(app) {
         CertId: req.params.id
       }
     }).then(function(dbCertification) {
-      res.json(dbCertification);
+      db.MasterLog.create({
+        entryType: "DELETE",
+        record: JSON.stringify(dbCertification),
+        PersonnelUid: req.body.uid
+      }).then(function(dbMasterLog) {
+        var returnOb = {
+          certification: dbCertification,
+          masterLog: dbMasterLog
+        };
+        res.json(returnOb);
+      });
     });
   });
 };
