@@ -8,6 +8,34 @@ module.exports = function(app) {
     });
   });
 
+  // Get all certifications
+  app.get("/api/certification", function(req, res) {
+    db.Certification.findAll({}).then(function(dbCertification) {
+      res.json(dbCertification);
+    });
+  });
+
+  // Get all equipment
+  app.get("/api/equipment", function(req, res) {
+    db.Equipment.findAll({}).then(function(dbEquipment) {
+      res.json(dbEquipment);
+    });
+  });
+
+  // Get all locations
+  app.get("/api/location", function(req, res) {
+    db.Location.findAll({}).then(function(dbLocation) {
+      res.json(dbLocation);
+    });
+  });
+
+  // Get all trucks
+  app.get("/api/truck", function(req, res) {
+    db.Truck.findAll({}).then(function(dbTruck) {
+      res.json(dbTruck);
+    });
+  });
+
   // Create a new personnel
   app.post("/api/personnel", function(req, res) {
     db.Personnel.create({
@@ -24,9 +52,10 @@ module.exports = function(app) {
       cellPhone: req.body.cellPhone,
       userEmail: req.body.userEmail,
       username:
-        req.body.firstName.toLowerCase() +
+        req.body.firstName.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, "") +
         "." +
-        req.body.lastName.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, "")
+        req.body.lastName.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, "") +
+        (Math.floor(Math.random() * 1000) + 1)
     }).then(function(dbPersonnel) {
       res.json(dbPersonnel);
     });
