@@ -32,6 +32,98 @@ module.exports = function(app) {
     });
   });
 
+  // Create a new certification
+  app.post("/api/certification", function(req, res) {
+    db.Certification.create({
+      certType: req.body.certType,
+      dateIssued: req.body.dateIssued,
+      expDate: req.body.expDate
+    }).then(function(dbCertification) {
+      res.json(dbCertification);
+    });
+  });
+
+  // Create a new equipment
+  app.post("/api/equipment", function(req, res) {
+    db.Equipment.create({
+      equipType: req.body.equipType,
+      condition: req.body.condition,
+      serviceDate: req.body.serviceDate,
+      expireDate: req.body.expireDate
+    }).then(function(dbEquipment) {
+      res.json(dbEquipment);
+    });
+  });
+
+  // Create a new location
+  app.post("/api/location", function(req, res) {
+    db.Location.create({
+      stationNameOrNumber: req.body.stationNameOrNumber,
+      addressLine1: req.body.addressLine1,
+      addressLine2: req.body.addresLine2,
+      city: req.body.city,
+      state: req.body.state,
+      zipcode: req.body.zipcode,
+      region: req.body.region,
+      country: req.body.country,
+      phoneNumber: req.body.phoneNumber,
+      faxNumber: req.body.faxNumber,
+      email: req.body.email,
+      nameOfChief: req.body.nameOfChief
+    }).then(function(dbLocation) {
+      res.json(dbLocation);
+    });
+  });
+
+  // Create a new truck
+  app.post("/api/truck", function(req, res) {
+    db.Truck.create({
+      truckType: req.body.truckType,
+      needsService: req.body.needsService,
+      condition: req.body.condition,
+      dateAcquired: req.body.dateAcquired,
+      serviceDate: req.body.serviceDate,
+      mileage: req.body.mileage,
+      expirationMileage: req.body.expirationMileage,
+      capacity: req.body.capacity
+    }).then(function(dbLocation) {
+      res.json(dbLocation);
+    });
+  });
+
+  // Delete a truck by id
+  app.delete("/api/truck/:id", function(req, res) {
+    db.Truck.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbTruck) {
+      res.json(dbTruck);
+    });
+  });
+
+  // Delete a location by id
+  app.delete("/api/location/:id", function(req, res) {
+    db.Location.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbLocation) {
+      res.json(dbLocation);
+    });
+  });
+
+  // Delete a equipment by id
+  app.delete("/api/equipment/:id", function(req, res) {
+    db.Equipment.destroy({
+      where: {
+        equipId: req.params.id
+      }
+    }).then(function(dbEquipment) {
+      res.json(dbEquipment);
+    });
+  });
+
   // Delete a personnel by id
   app.delete("/api/personnel/:id", function(req, res) {
     db.Personnel.destroy({
@@ -40,6 +132,17 @@ module.exports = function(app) {
       }
     }).then(function(dbPersonnel) {
       res.json(dbPersonnel);
+    });
+  });
+
+  // Delete a certification by id
+  app.delete("/api/certification/:id", function(req, res) {
+    db.Certification.destroy({
+      where: {
+        CertId: req.params.id
+      }
+    }).then(function(dbCertification) {
+      res.json(dbCertification);
     });
   });
 };
