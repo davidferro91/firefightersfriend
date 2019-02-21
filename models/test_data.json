@@ -1,0 +1,46 @@
+{
+"firstName": "John",
+"lastName":"Firefighter",
+"title": "Lt",
+"password": "password",
+"addressLine1": "200 SomeWhere Street",
+"addressLine2": "",
+"city": "Cleveland",
+"state": "OH",
+"zipcode": "12345",
+"homePhone": "1234567890",
+"cellPhone": "1234567890",
+"userEmail": "john.fighter@kdkdkd.com",
+"username": ""
+}
+
+
+{
+	"certType":"Emergency Medical Technology",
+	"dateIssued":"2019-02-20 18:52:05",
+	"expDate":"2019-12-20 18:52:05",
+	"PersonnelUid":1
+}
+
+
+{
+	"equipType":"20 ft 3 inch dia hose",
+	"condition":"good",
+	"serviceDate":"2014-02-20 18:52:05",
+	"expireDate":"2019-02-20 18:52:05"
+}
+
+{
+"stationNameOrNumber": "Station Number 4",
+"addressLine1": "300 FireLane Street",
+"addressLine2": "",
+"city": "Cleveland",
+"state": "OH",
+"zipcode": "12345",
+"region":"Cuyahoga County",
+"country":"",
+"phoneNumber":"1234567890",
+"faxNumber":"1112223333",
+"email": "station4@kdkdkd.com",
+"nameOfChief": "Chief TheChief"
+}

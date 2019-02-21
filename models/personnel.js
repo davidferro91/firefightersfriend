@@ -69,10 +69,10 @@ module.exports = function(sequelize, DataTypes) {
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         notEmpty: true
-      },
-      defaultValue: this.firstName + "." + this.lastName + this.uid
+      }
     },
     password: {
       type: DataTypes.STRING,
