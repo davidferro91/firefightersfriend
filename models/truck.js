@@ -50,7 +50,7 @@ module.exports = function(sequelize, DataTypes) {
   Truck.associate = function(models) {
     models.Truck.belongsTo(models.Location, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
   };

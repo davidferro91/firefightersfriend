@@ -105,7 +105,7 @@ module.exports = function(sequelize, DataTypes) {
   Personnel.associate = function(models) {
     models.Personnel.belongsTo(models.Location, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
   };
