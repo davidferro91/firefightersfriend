@@ -191,6 +191,46 @@ module.exports = function(app) {
     });
   });
 
+  // update personnel by id
+  app.put("/api/personnel/:id", function(req, res) {
+    db.Personnel.update(
+      {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        addressLine1: req.body.addressLine1,
+        addressLine2: req.body.addressLine2,
+        city: req.body.city,
+        state: req.body.state,
+        zipcode: req.body.zipcode,
+        homePhone: req.body.homePhone,
+        cellPhone: req.body.cellPhone,
+        userEmail: req.body.userEmail,
+        username: req.body.username,
+        password: req.body.password,
+        permissionLevel: req.body.permissionLevel,
+        title: req.body.title
+      },
+      {
+        where: {
+          uid: req.params.id
+        }
+      }
+    ).then(function(dbPersonnel) {
+      // res.json(dbPersonnel);
+      db.MasterLog.create({
+        entryType: "UPDATE",
+        record: JSON.stringify(dbPersonnel),
+        PersonnelUid: req.params.id
+      }).then(function(dbMasterLog) {
+        var returnOb = {
+          personnel: dbPersonnel,
+          masterLog: dbMasterLog
+        };
+        res.json(returnOb);
+      });
+    });
+  });
+
   // Delete a location by id
   app.delete("/api/location/:id", function(req, res) {
     db.Location.destroy({
