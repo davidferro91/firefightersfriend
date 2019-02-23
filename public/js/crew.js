@@ -1,68 +1,41 @@
-//
-// crew.js
-
 $(document).ready(function() {
-  console.log("we are in the crew jquery");
-  var $submitBtn = $("#edit-crew-btn");
-  var $crewFirstName = $("#first-name-input");
-  var $crewLastName = $("#last-name-input");
-  var $crewAddLine1 = $("#address-line1-input");
-  var $crewAddLine2 = $("#address-line2-input");
-  var $crewCity = $("#city-input");
-  var $crewState = $("#state-input");
-  var $crewZip = $("#zipcode-input");
-  var $crewHomePhone = $("#home-phone-input");
-  var $crewCellPhone = $("#cell-phone-input");
-  var $crewUserEmail = $("#user-email-input");
-  var $crewTitle = $("#title-input");
+  var firstName = $("#first-name-input").val();
+  var lastName = $("#last-name-input").val();
+  var title = $("#title-input").val();
+  var addressLine1 = $("#address-line1-input").val();
+  var addressLine2 = $("#address-line2-input").val();
+  var city = $("#city-input").val();
+  var state = $("#state-input").val();
+  var zipcode = $("#zipcode-input").val();
+  var homePhone = $("#home-phone-input").val();
+  var cellPhone = $("#cell-phone-input").val();
+  var userEmail = $("#user-email-input").val();
 
-  var uid = $submitBtn.data("id");
+  var crewOb = {
+    firstName: firstName,
+    lastName: lastName,
+    title: title,
+    addressLine1: addressLine1,
+    addressLine2: addressLine2,
+    city: city,
+    state: state,
+    zipcode: zipcode,
+    homePhone: homePhone,
+    cellPhone: cellPhone,
+    userEmail: userEmail
+  };
 
-  var handleFormSubmit = function(event) {
+  $("#edit-crew-btn").on("click", function(event) {
     event.preventDefault();
-    var crewEdit = {
-      firstName: $crewFirstName.val().trim(),
-      lastName: $crewLastName.val().trim(),
-      addressLine1: $crewAddLine1.val().trim(),
-      addressLine2: $crewAddLine2.val().trim(),
-      city: $crewCity.val().trim(),
-      state: $crewState.val().trim(),
-      zipcode: $crewZip.val().trim(),
-      homePhone: $crewHomePhone.val().trim,
-      cellPhone: $crewCellPhone.val().trim(),
-      userEmail: $crewUserEmail.val().trim(),
-      title: $crewTitle.val().trim()
-    };
-
-    if (Object.keys(crewEdit).length < 10) {
-      alert("You must enter all input fields!");
-      return;
-    }
-
-    API.saveCrew(crewEdit);
-  };
-
-  var API = {
-    saveCrew: function(crewEdit) {
-      $.ajax({
-        type: "PUT",
-        url: "/api/personnel/" + uid,
-        data: crewEdit
-      });
-    },
-    getCrew: function() {
-      return $.ajax({
-        url: "/api/personnel/",
-        type: "GET"
-      });
-    },
-    deleteCrew: function(uid) {
-      return $.ajax({
-        url: "api/personnel/" + uid,
-        type: "DELETE"
-      });
-    }
-  };
-
-  $submitBtn.on("click", handleFormSubmit);
+    var uid = $(this).data("id");
+    var queryURL = "/api/personnel/" + uid;
+    console.log(queryURL);
+    $.ajax({
+      method: "PUT",
+      url: queryURL,
+      data: crewOb
+    }).then(function() {
+      window.location.href = "/crew";
+    });
+  });
 });
