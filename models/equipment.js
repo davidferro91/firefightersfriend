@@ -12,6 +12,9 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true
       }
     },
+    serialNumber: {
+      type: DataTypes.INTEGER
+    },
     condition: {
       type: DataTypes.ENUM("excellent", "good", "fair", "poor", "critical"),
       allowNull: false,
