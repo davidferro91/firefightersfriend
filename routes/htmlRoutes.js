@@ -13,7 +13,11 @@ module.exports = function(app) {
 
   // Load index page
   app.get("/equipment", function(req, res) {
-    res.render("equipment", {});
+    db.Equipment.findAll({}).then(function(dbEquipment) {
+      res.render("equipment", {
+        Equipment: dbEquipment
+      });
+    });
   });
 
   // Load index page
@@ -32,7 +36,24 @@ module.exports = function(app) {
 
   // Load index page
   app.get("/crew", function(req, res) {
-    res.render("crew", {});
+    db.Personnel.findAll({}).then(function(dbPersonnel) {
+      res.render("crew", {
+        Personnel: dbPersonnel
+      });
+    });
+  });
+
+  // crew page to get all certifications with PersonnelUid
+  app.get("/certification/:PersonnelUid", function(req, res) {
+    db.Certification.findAll({
+      where: {
+        PersonnelUid: req.params.PersonnelUid
+      }
+    }).then(function(dbCertification) {
+      res.render("certification", {
+        Certification: dbCertification
+      });
+    });
   });
 
   // Load index page
