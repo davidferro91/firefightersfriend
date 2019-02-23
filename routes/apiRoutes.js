@@ -192,7 +192,7 @@ module.exports = function(app) {
       certType: req.body.certType,
       dateIssued: req.body.dateIssued,
       expDate: req.body.expDate,
-      PersonnelUid: req.body.uid
+      PersonnelUid: req.body.PersonnelUid
     }).then(function(dbCertification) {
       db.MasterLog.create({
         entryType: "CREATE",
@@ -358,7 +358,7 @@ module.exports = function(app) {
         certType: req.body.certType,
         dateIssued: req.body.dateIssued,
         expDate: req.body.expDate,
-        PersonnelUid: req.body.uid
+        PersonnelUid: req.body.PersonnelUid
       },
       {
         where: {
@@ -373,7 +373,7 @@ module.exports = function(app) {
             certType: req.body.certType,
             dateIssued: req.body.dateIssued,
             expDate: req.body.expDate,
-            PersonnelUid: req.body.uid
+            PersonnelUid: req.body.PersonnelUid
           },
           {
             where: {
