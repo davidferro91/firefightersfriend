@@ -48,48 +48,49 @@
                     <form>
                         <div class="form-group">
                             <label for="employee-name-input">First Name</label>
-                            <input class="form-entry" id="first-name-input" type="text" placeholder="{{firstName}}">
+                            <input class="form-entry" id="first-name-input" value="" type="text" placeholder="{{firstName}}">
                         </div>
                         <div class="form-group">
                             <label for="role-input">Last Name</label>
-                            <input class="form-entry" id="last-name-input" type="text" placeholder="{{lastName}}">
+                            <input class="form-entry" id="last-name-input" value="" type="text" placeholder="{{lastName}}">
                         </div>
                         <div class="form-group">
                             <label for="start-input">Title</label>
-                            <input class="form-entry" id="title-input" type="text" placeholder="{{title}}">
+                            <input class="form-entry" id="title-input" value="" type="text" placeholder="{{title}}">
                         </div>
                         <div class="form-group">
                             <label for="rate-input">Address Line 1</label>
-                            <input class="form-entry" id="address-line1-input" type="text" placeholder="{{addressLine1}}">
+                            <input class="form-entry" id="address-line1-input" value="" type="text" placeholder="{{addressLine1}}">
                         </div>
                         <div class="form-group">
                             <label for="rate-input">Address Line 2</label>
-                            <input class="form-entry" id="address-line2-input" type="text" placeholder="{{addressLine2}}">
+                            <input class="form-entry" id="address-line2-input" value="" type="text" placeholder="{{addressLine2}}">
                         </div>
                         <div class="form-group">
                             <label for="rate-input">City</label>
-                            <input class="form-entry" id="city-input" type="text" placeholder="{{city}}">
+                            <input class="form-entry" id="city-input" value="" type="text" placeholder="{{city}}">
                         </div>
                         <div class="form-group">
                             <label for="rate-input">State</label>
-                            <input class="form-entry" id="state-input" type="text" placeholder="{{state}}">
+                            <input class="form-entry" id="state-input" value="" type="text" placeholder="{{state}}">
                         </div>
                         <div class="form-group">
                             <label for="rate-input">Zipcode</label>
-                            <input class="form-entry" id="zipcode-input" type="text" placeholder="{{zipcode}}">
+                            <input class="form-entry" id="zipcode-input" value="" type="text" placeholder="{{zipcode}}">
                         </div>
                         <div class="form-group">
                             <label for="rate-input">Home Phone</label>
-                            <input class="form-entry" id="home-phone-input" type="text" placeholder="{{homePhone}}">
+                            <input class="form-entry" id="home-phone-input" value="" type="text" placeholder="{{homePhone}}">
                         </div>
                         <div class="form-group">
                             <label for="rate-input">Cell Phone</label>
-                            <input class="form-entry" id="cell-phone-input" type="text" placeholder="{{cellPhone}}">
+                            <input class="form-entry" id="cell-phone-input" value="" type="text" placeholder="{{cellPhone}}">
                         </div>
                         <div class="form-group">
                             <label for="rate-input">User Email</label>
-                            <input class="form-entry" id="user-email-input" type="text" placeholder="{{userEmail}}">
+                            <input class="form-entry" id="user-email-input" value="" type="text" placeholder="{{userEmail}}">
                         </div>
+                        <button class="btn btn-danger ml-2 float-right" id="delete-crew-btn" data-id="{{uid}}">Delete</button>
                         <button class="btn btn-primary float-right" id="edit-crew-btn" data-id="{{uid}}">Submit</button>
                     </form>
                     {{/each}}
@@ -97,5 +98,5 @@
             </div>
         </div>
     </div>
-
+    <script src="/js/crew.js"></script>
 </div>
