@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
   MasterLog.associate = function(models) {
     models.MasterLog.belongsTo(models.Personnel, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
   };

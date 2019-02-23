@@ -39,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
   Equipment.associate = function(models) {
     models.Equipment.belongsTo(models.Location, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
   };
