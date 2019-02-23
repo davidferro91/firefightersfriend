@@ -32,14 +32,19 @@
             <div class="card mb-3">
                 <div class="row">
                     <div class="col-md-12">
+                        {{#each Personnel}}
                         <div class="card mb-4">
-                            <div class="card-header">Crew</div>
+                            <div class="card-header"><b>{{title}} {{firstName}} {{lastName}}</b>
+                            </div>
                             <div class="card-body">
-                                 {{#each Personnel}}
-                            {{title}},{{firstName}} {{lastName}} {{userEmail}}, {{cellPhone}}, {{homePhone}}<hr>
-                            {{/each}}
+                             <b>Email: </b>{{userEmail}}<hr>
+                             <b>Cell: </b>{{cellPhone}}<hr>
+                             <b>Home: </b>{{homePhone}}<hr>
+                             <a role="button" id= "profile-button" class="btn btn-primary text-white" href="/profile/{{uid}}">Profile</a>
+                            <a role="button" id= "cert-button" data-id={{uid}} class="btn btn-secondary text-white" href="/certification/{{uid}}">Certifications</a>
                             </div>
                         </div>
+                        {{/each}}
                     </div>
                 </div>
             </div>

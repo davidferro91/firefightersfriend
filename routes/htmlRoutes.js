@@ -6,6 +6,26 @@ module.exports = function(app) {
     res.render("index", {});
   });
 
+  app.get("/add-crew", function(req, res) {
+    res.render("add-crew", {});
+  });
+
+  app.get("/add-equipment", function(req, res) {
+    res.render("add-equipment", {});
+  });
+
+  app.get("/add-certs/:uid", function(req, res) {
+    db.Personnel.findAll({
+      where: {
+        uid: req.params.uid
+      }
+    }).then(function(dbPersonnel) {
+      res.render("add-certs", {
+        Personnel: dbPersonnel
+      });
+    });
+  });
+
   // Load home page
   app.get("/profile/:uid", function(req, res) {
     db.Personnel.findAll({
@@ -49,17 +69,62 @@ module.exports = function(app) {
   });
 
   // Load index page
-  app.get("/edit-equipment", function(req, res) {
-    res.render("edit-equipment", {});
+  app.get("/edit-equipment/:equipId", function(req, res) {
+    db.Equipment.findAll({
+      where: {
+        equipId: req.params.equipId
+      }
+    }).then(function(dbEquipment) {
+      res.render("edit-equipment", {
+        Equipment: dbEquipment
+      });
+    });
   });
 
   // Load index page
-  app.get("/edit-crew", function(req, res) {
-    res.render("edit-crew", {});
+  app.get("/edit-crew/:uid", function(req, res) {
+    db.Personnel.findAll({
+      where: {
+        uid: req.params.uid
+      }
+    }).then(function(dbPersonnel) {
+      var sendArr = [];
+      for (var i = 0; i < dbPersonnel.length; i++) {
+        var sendOb = {
+          uid: dbPersonnel[i].uid,
+          firstName: dbPersonnel[i].firstName,
+          lastName: dbPersonnel[i].lastName,
+          addressLine1: dbPersonnel[i].addressLine1,
+          addressLine2: dbPersonnel[i].addressLine2,
+          city: dbPersonnel[i].city,
+          state: dbPersonnel[i].state,
+          zipcode: dbPersonnel[i].zipcode,
+          homePhone: dbPersonnel[i].homePhone,
+          cellPhone: dbPersonnel[i].cellPhone,
+          userEmail: dbPersonnel[i].userEmail,
+          username: dbPersonnel[i].username,
+          permissionLevel: dbPersonnel[i].permissionLevel,
+          title: dbPersonnel[i].title
+        };
+        sendArr.push(sendOb);
+      }
+      res.render("edit-crew", {
+        Personnel: sendArr
+      });
+    });
   });
+
   // Load index page
-  app.get("/edit-certs", function(req, res) {
-    res.render("edit-certs", {});
+  app.get("/edit-certs/:certId", function(req, res) {
+    db.Certification.findAll({
+      where: {
+        certId: req.params.certId
+      }
+    }).then(function(dbCertification) {
+      res.render("edit-certs", {
+        Certification: dbCertification
+      });
+    });
   });
 
   // Load index page

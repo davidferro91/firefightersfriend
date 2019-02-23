@@ -77,6 +77,7 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: "password",
       validate: {
         len: [8]
       }

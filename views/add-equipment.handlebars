@@ -44,15 +44,14 @@
                 <div class="card-body">
 
                     <!-- Entry Form -->
-                    {{#each Equipment}}
                     <form>
                         <div class="form-group">
                             <label for="employee-name-input">Equipment Type</label>
-                            <input class="form-entry" id="equipment-name-type" placeholder="" type="text" value= "{{equipType}}">
+                            <input class="form-entry" id="equipment-name-type" placeholder="" type="text">
                         </div>
                         <div class="form-group">
                             <label for="serial-input">Serial Number</label>
-                            <input class="form-entry" id="serial-input" placeholder="" type="text" value= "{{serialNumber}}">
+                            <input class="form-entry" id="serial-input" placeholder="" type="text">
                         </div>
                         <div class="form-group">
                             <label for="condition-input">Condition</label>
@@ -66,15 +65,14 @@
                         </div>
                         <div class="form-group">
                             <label for="start-input">Service Date</label>
-                            <input class="form-entry" id="Service-date-input" placeholder="" type="text" value= "{{serviceDate}}">
+                            <input class="form-entry" id="Service-date-input" placeholder="" type="text">
                         </div>
                         <div class="form-group">
                             <label for="rate-input">Expiration Date</label>
-                            <input class="form-entry" id="expiration-date-input" placeholder="" type="text" value= "{{expireDate}}">
+                            <input class="form-entry" id="expiration-date-input" placeholder="" type="text">
                         </div>
                         <button class="btn btn-primary float-right" id="edit-equipment-btn">Submit</button>
                     </form>
-                    {{/each}}
                 </div>
             </div>
         </div>

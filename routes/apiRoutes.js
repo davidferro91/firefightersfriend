@@ -304,8 +304,8 @@ module.exports = function(app) {
         homePhone: req.body.homePhone,
         cellPhone: req.body.cellPhone,
         userEmail: req.body.userEmail,
-        username: req.body.username,
-        password: req.body.password,
+        // username: req.body.username,
+        // password: req.body.password,
         permissionLevel: req.body.permissionLevel,
         title: req.body.title
       },
@@ -329,7 +329,7 @@ module.exports = function(app) {
             homePhone: req.body.homePhone,
             cellPhone: req.body.cellPhone,
             userEmail: req.body.userEmail,
-            username: req.body.username,
+            // username: req.body.username,
             permissionLevel: req.body.permissionLevel,
             title: req.body.title
           },
