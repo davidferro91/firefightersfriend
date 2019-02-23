@@ -17,17 +17,42 @@ describe("GET /api/personnel", function() {
     return db.sequelize.sync({ force: true });
   });
 
-  it("should find all personnel records", function(done) {
+  it("should find all personnel", function(done) {
     // Add some examples to the db to test with
     db.Personnel.bulkCreate([
       {
-        firstName: "First Name",
-        lastName: "Last Name"
+        firstName: "John",
+        lastName: "Firefighter",
+        title: "Lt",
+        password: "password",
+        addressLine1: "200 SomeWhere Street",
+        addressLine2: "",
+        city: "Cleveland",
+        state: "OH",
+        zipcode: "12345",
+        homePhone: "1234567890",
+        cellPhone: "1234567890",
+        userEmail: "john.fighter@kdkdkd.com",
+        username: "asdfashgoasd"
       },
-      { text: "Second Example", description: "Second Description" }
+      {
+        firstName: "Regina",
+        lastName: "Lighter",
+        title: "Sgt",
+        password: "notPassword",
+        addressLine1: "300 Where Road",
+        addressLine2: "",
+        city: "Parma",
+        state: "NY",
+        zipcode: "43244",
+        homePhone: "1234567890",
+        cellPhone: "1234567890",
+        userEmail: "Regina.Lighter@kdkdkd.com",
+        username: "asdoifhasiughalsidhfasklhfslkdjgz"
+      }
     ]).then(function() {
       // Request the route that returns all examples
-      request.get("/api/examples").end(function(err, res) {
+      request.get("/api/personnel").end(function(err, res) {
         var responseStatus = res.status;
         var responseBody = res.body;
 
@@ -44,15 +69,37 @@ describe("GET /api/personnel", function() {
         expect(responseBody[0])
           .to.be.an("object")
           .that.includes({
-            text: "First Example",
-            description: "First Description"
+            firstName: "John",
+            lastName: "Firefighter",
+            title: "Lt",
+            password: "password",
+            addressLine1: "200 SomeWhere Street",
+            addressLine2: "",
+            city: "Cleveland",
+            state: "OH",
+            zipcode: "12345",
+            homePhone: "1234567890",
+            cellPhone: "1234567890",
+            userEmail: "john.fighter@kdkdkd.com",
+            username: "asdfashgoasd"
           });
 
         expect(responseBody[1])
           .to.be.an("object")
           .that.includes({
-            text: "Second Example",
-            description: "Second Description"
+            firstName: "Regina",
+            lastName: "Lighter",
+            title: "Sgt",
+            password: "notPassword",
+            addressLine1: "300 Where Road",
+            addressLine2: "",
+            city: "Parma",
+            state: "NY",
+            zipcode: "43244",
+            homePhone: "1234567890",
+            cellPhone: "1234567890",
+            userEmail: "Regina.Lighter@kdkdkd.com",
+            username: "asdoifhasiughalsidhfasklhfslkdjgz"
           });
 
         // The `done` function is used to end any asynchronous tests
