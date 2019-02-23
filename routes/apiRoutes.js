@@ -212,6 +212,7 @@ module.exports = function(app) {
   app.post("/api/equipment", function(req, res) {
     db.Equipment.create({
       equipType: req.body.equipType,
+      serialNumber: req.body.serialNumber,
       condition: req.body.condition,
       serviceDate: req.body.serviceDate,
       expireDate: req.body.expireDate,
@@ -397,6 +398,7 @@ module.exports = function(app) {
     db.Equipment.update(
       {
         equipType: req.body.equipType,
+        serialNumber: req.body.serialNumber,
         condition: req.body.condition,
         serviceDate: req.body.serviceDate,
         expireDate: req.body.expireDate,
@@ -414,6 +416,7 @@ module.exports = function(app) {
         record: JSON.stringify(
           {
             equipType: req.body.equipType,
+            serialNumber: req.body.serialNumber,
             condition: req.body.condition,
             serviceDate: req.body.serviceDate,
             expireDate: req.body.expireDate,
