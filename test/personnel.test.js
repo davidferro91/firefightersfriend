@@ -22,7 +22,8 @@ describe("GET /api/personnel", function() {
     db.Personnel.bulkCreate([
       {
         firstName: "First Name",
-        lastName: "Last Name" },
+        lastName: "Last Name"
+      },
       { text: "Second Example", description: "Second Description" }
     ]).then(function() {
       // Request the route that returns all examples
@@ -42,11 +43,17 @@ describe("GET /api/personnel", function() {
 
         expect(responseBody[0])
           .to.be.an("object")
-          .that.includes({ text: "First Example", description: "First Description" });
+          .that.includes({
+            text: "First Example",
+            description: "First Description"
+          });
 
         expect(responseBody[1])
           .to.be.an("object")
-          .that.includes({ text: "Second Example", description: "Second Description" });
+          .that.includes({
+            text: "Second Example",
+            description: "Second Description"
+          });
 
         // The `done` function is used to end any asynchronous tests
         done();
