@@ -7,8 +7,36 @@ module.exports = function(app) {
   });
 
   // Load home page
-  app.get("/profile", function(req, res) {
-    res.render("profile", {});
+  app.get("/profile/:uid", function(req, res) {
+    db.Personnel.findAll({
+      where: {
+        uid: req.params.uid
+      }
+    }).then(function(dbPersonnel) {
+      var sendArr = [];
+      for (var i = 0; i < dbPersonnel.length; i++) {
+        var sendOb = {
+          uid: dbPersonnel[i].uid,
+          firstName: dbPersonnel[i].firstName,
+          lastName: dbPersonnel[i].lastName,
+          addressLine1: dbPersonnel[i].addressLine1,
+          addressLine2: dbPersonnel[i].addressLine2,
+          city: dbPersonnel[i].city,
+          state: dbPersonnel[i].state,
+          zipcode: dbPersonnel[i].zipcode,
+          homePhone: dbPersonnel[i].homePhone,
+          cellPhone: dbPersonnel[i].cellPhone,
+          userEmail: dbPersonnel[i].userEmail,
+          username: dbPersonnel[i].username,
+          permissionLevel: dbPersonnel[i].permissionLevel,
+          title: dbPersonnel[i].title
+        };
+        sendArr.push(sendOb);
+      }
+      res.render("profile", {
+        Personnel: sendArr
+      });
+    });
   });
 
   // Load index page
@@ -37,8 +65,28 @@ module.exports = function(app) {
   // Load index page
   app.get("/crew", function(req, res) {
     db.Personnel.findAll({}).then(function(dbPersonnel) {
+      var sendArr = [];
+      for (var i = 0; i < dbPersonnel.length; i++) {
+        var sendOb = {
+          uid: dbPersonnel[i].uid,
+          firstName: dbPersonnel[i].firstName,
+          lastName: dbPersonnel[i].lastName,
+          addressLine1: dbPersonnel[i].addressLine1,
+          addressLine2: dbPersonnel[i].addressLine2,
+          city: dbPersonnel[i].city,
+          state: dbPersonnel[i].state,
+          zipcode: dbPersonnel[i].zipcode,
+          homePhone: dbPersonnel[i].homePhone,
+          cellPhone: dbPersonnel[i].cellPhone,
+          userEmail: dbPersonnel[i].userEmail,
+          username: dbPersonnel[i].username,
+          permissionLevel: dbPersonnel[i].permissionLevel,
+          title: dbPersonnel[i].title
+        };
+        sendArr.push(sendOb);
+      }
       res.render("crew", {
-        Personnel: dbPersonnel
+        Personnel: sendArr
       });
     });
   });
