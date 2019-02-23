@@ -40,41 +40,27 @@
         <div class="col-md-12">
             <!-- Add Employee  -->
             <div class="card mb-4">
-                <div class="card-header">Add Equipment</div>
+                <div class="card-header">Add Certificate</div>
                 <div class="card-body">
 
                     <!-- Entry Form -->
-                    {{#each Equipment}}
                     <form>
                         <div class="form-group">
-                            <label for="employee-name-input">Equipment Type</label>
-                            <input class="form-entry" id="equipment-name-type" placeholder="" type="text" value= "{{equipType}}">
+                            <label for="employee-name-input">Certificate Type</label>
+                            <input class="form-entry" id="Certificate-input" placeholder="" type="text">
                         </div>
                         <div class="form-group">
-                            <label for="serial-input">Serial Number</label>
-                            <input class="form-entry" id="serial-input" placeholder="" type="text" value= "{{serialNumber}}">
+                            <label for="role-input">Date issued</label>
+                            <input class="form-entry" id="date-issued-input" placeholder="" type="text">
                         </div>
                         <div class="form-group">
-                            <label for="condition-input">Condition</label>
-                            <select class="form-control" id="condition-input">
-                                <option>Excellent</option>
-                                <option>Good</option>
-                                <option>Fair</option>
-                                <option>Poor</option>
-                                <option>Critical</option>
-                            </select>
+                            <label for="start-input">Expiration Date</label>
+                            <input class="form-entry" id="expiration-date-input" placeholder="" type="text">
                         </div>
-                        <div class="form-group">
-                            <label for="start-input">Service Date</label>
-                            <input class="form-entry" id="Service-date-input" placeholder="" type="text" value= "{{serviceDate}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="rate-input">Expiration Date</label>
-                            <input class="form-entry" id="expiration-date-input" placeholder="" type="text" value= "{{expireDate}}">
-                        </div>
-                        <button class="btn btn-primary float-right" id="edit-equipment-btn">Submit</button>
+                        {{#each Personnel}}
+                        <button class="btn btn-primary float-right" id="edit-certificate-btn" data-id={{uid}}>Submit</button>
+                        {{/each}}
                     </form>
-                    {{/each}}
                 </div>
             </div>
         </div>
