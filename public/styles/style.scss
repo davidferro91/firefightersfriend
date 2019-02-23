@@ -1,0 +1,13 @@
+$font-stack:  Helvetica,sans-serif;
+$primary-color: whitesmoke;
+$background-color: #2D298C;
+
+body {
+  font: 100% $font-stack;
+  background-color: $primary-color;
+}
+
+.jumbotron {
+    background-color: $background-color;
+    color: white;
+}
