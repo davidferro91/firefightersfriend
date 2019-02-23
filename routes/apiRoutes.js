@@ -4,23 +4,29 @@ module.exports = function(app) {
   // Get all personnel
   app.get("/api/personnel", function(req, res) {
     db.Personnel.findAll({}).then(function(dbPersonnel) {
-      var sendOb = {
-        uid: dbPersonnel.uid,
-        firstName: dbPersonnel.firstName,
-        lastName: dbPersonnel.lastName,
-        addressLine1: dbPersonnel.addressLine1,
-        addressLine2: dbPersonnel.addressLine2,
-        city: dbPersonnel.city,
-        state: dbPersonnel.state,
-        zipcode: dbPersonnel.zipcode,
-        homePhone: dbPersonnel.homePhone,
-        cellPhone: dbPersonnel.cellPhone,
-        userEmail: dbPersonnel.userEmail,
-        username: dbPersonnel.username,
-        permissionLevel: dbPersonnel.permissionLevel,
-        title: dbPersonnel.title
-      };
-      res.json(sendOb);
+      console.log(dbPersonnel);
+      var sendArr = [];
+      for (var i = 0; i < dbPersonnel.length; i++) {
+        var sendOb = {
+          uid: dbPersonnel[i].uid,
+          firstName: dbPersonnel[i].firstName,
+          lastName: dbPersonnel[i].lastName,
+          addressLine1: dbPersonnel[i].addressLine1,
+          addressLine2: dbPersonnel[i].addressLine2,
+          city: dbPersonnel[i].city,
+          state: dbPersonnel[i].state,
+          zipcode: dbPersonnel[i].zipcode,
+          homePhone: dbPersonnel[i].homePhone,
+          cellPhone: dbPersonnel[i].cellPhone,
+          userEmail: dbPersonnel[i].userEmail,
+          username: dbPersonnel[i].username,
+          permissionLevel: dbPersonnel[i].permissionLevel,
+          title: dbPersonnel[i].title
+        };
+        sendArr.push(sendOb);
+      }
+      console.log(sendArr);
+      res.json(sendArr);
     });
   });
 
@@ -31,23 +37,29 @@ module.exports = function(app) {
         uid: req.params.uid
       }
     }).then(function(dbPersonnel) {
-      var sendOb = {
-        uid: dbPersonnel.uid,
-        firstName: dbPersonnel.firstName,
-        lastName: dbPersonnel.lastName,
-        addressLine1: dbPersonnel.addressLine1,
-        addressLine2: dbPersonnel.addressLine2,
-        city: dbPersonnel.city,
-        state: dbPersonnel.state,
-        zipcode: dbPersonnel.zipcode,
-        homePhone: dbPersonnel.homePhone,
-        cellPhone: dbPersonnel.cellPhone,
-        userEmail: dbPersonnel.userEmail,
-        username: dbPersonnel.username,
-        permissionLevel: dbPersonnel.permissionLevel,
-        title: dbPersonnel.title
-      };
-      res.json(sendOb);
+      console.log(dbPersonnel);
+      var sendArr = [];
+      for (var i = 0; i < dbPersonnel.length; i++) {
+        var sendOb = {
+          uid: dbPersonnel[i].uid,
+          firstName: dbPersonnel[i].firstName,
+          lastName: dbPersonnel[i].lastName,
+          addressLine1: dbPersonnel[i].addressLine1,
+          addressLine2: dbPersonnel[i].addressLine2,
+          city: dbPersonnel[i].city,
+          state: dbPersonnel[i].state,
+          zipcode: dbPersonnel[i].zipcode,
+          homePhone: dbPersonnel[i].homePhone,
+          cellPhone: dbPersonnel[i].cellPhone,
+          userEmail: dbPersonnel[i].userEmail,
+          username: dbPersonnel[i].username,
+          permissionLevel: dbPersonnel[i].permissionLevel,
+          title: dbPersonnel[i].title
+        };
+        sendArr.push(sendOb);
+      }
+      console.log(sendArr);
+      res.json(sendArr);
     });
   });
 
