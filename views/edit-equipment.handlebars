@@ -44,12 +44,12 @@
                     {{#each Equipment}}
                     <form>
                         <div class="form-group">
-                            <label for="employee-name-input">Equipment Type</label>
-                            <input class="form-entry" id="equipment-name-type" placeholder="" type="text" value= "{{equipType}}">
+                            <label for="type-input">Equipment Type</label>
+                            <input class="form-entry" id="type-input" placeholder="" type="text" value= "{{equipType}}">
                         </div>
                         <div class="form-group">
-                            <label for="serial-input">Serial Number</label>
-                            <input class="form-entry" id="serial-input" placeholder="" type="text" value= "{{serialNumber}}">
+                            <label for="serial-number-input">Serial Number</label>
+                            <input class="form-entry" id="serial-number-input" placeholder="" type="text" value= "{{serialNumber}}">
                         </div>
                         <div class="form-group">
                             <label for="condition-input">Condition</label>
@@ -62,19 +62,20 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="start-input">Service Date</label>
-                            <input class="form-entry" id="Service-date-input" placeholder="" type="text" value= "{{serviceDate}}">
+                            <label for="service-date-input">Service Date</label>
+                            <input class="form-entry" id="service-date-input" placeholder="" type="text" value= "{{serviceDate}}">
                         </div>
                         <div class="form-group">
                             <label for="rate-input">Expiration Date</label>
                             <input class="form-entry" id="expiration-date-input" placeholder="" type="text" value= "{{expireDate}}">
                         </div>
-                        <button class="btn btn-primary float-right" id="edit-equipment-btn">Submit</button>
+                        <button class="btn btn-danger ml-2 float-right" id="delete-equipment-btn" data-id="{{equipId}}">Delete</button>
+                        <button class="btn btn-primary float-right" id="edit-equipment-btn" data-id={{equipId}}>Submit</button>
                     </form>
                     {{/each}}
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="/js/equipment.js"></script>
 </div>
