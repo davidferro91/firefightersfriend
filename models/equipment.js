@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     serialNumber: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     condition: {
       type: DataTypes.ENUM("excellent", "good", "fair", "poor", "critical"),

@@ -163,8 +163,22 @@ module.exports = function(app) {
         PersonnelUid: req.params.PersonnelUid
       }
     }).then(function(dbCertification) {
-      res.render("certification", {
-        Certification: dbCertification
+      db.Personnel.findAll({
+        where: {
+          uid: req.params.PersonnelUid
+        }
+      }).then(function(dbPersonnel) {
+        var sendArr = [];
+        for (var i = 0; i < dbPersonnel.length; i++) {
+          var sendOb = {
+            uid: dbPersonnel[i].uid
+          };
+          sendArr.push(sendOb);
+        }
+        res.render("certification", {
+          Certification: dbCertification,
+          Personnel: sendArr
+        });
       });
     });
   });
