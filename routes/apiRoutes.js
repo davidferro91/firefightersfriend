@@ -135,6 +135,12 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/masterlog", function(req, res) {
+    db.MasterLog.findAll({}).then(function(dbMasterLog) {
+      res.json(dbMasterLog);
+    });
+  });
+
   // Create a new personnel
   app.post("/api/personnel", function(req, res) {
     db.Personnel.create({
