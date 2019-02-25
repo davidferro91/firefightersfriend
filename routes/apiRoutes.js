@@ -135,9 +135,21 @@ module.exports = function(app) {
     });
   });
 
+  // Get all master logs
   app.get("/api/masterlog", function(req, res) {
     db.MasterLog.findAll({}).then(function(dbMasterLog) {
       res.json(dbMasterLog);
+    });
+  });
+
+  // Get one master log
+  app.get("/api/masterlog/:id", function(req, res) {
+    db.MasterLog.findAll({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbTruck) {
+      res.json(dbTruck);
     });
   });
 
