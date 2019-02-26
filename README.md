@@ -6,6 +6,8 @@ https://firefightersfriend.herokuapp.com/
 
 [Google Slides Presentation](https://docs.google.com/presentation/d/13ubmLKpQ19rmonPIy814ewu_eDHhyJ8k0EBQ4y0u258/edit#slide=id.p)
 
+![Screenshot of Firefighter's Friend Application](/public/images/screenshot.png)
+
 ## Description
 
 This is a web-based application that provides a queryable database for firehouse management information. 
